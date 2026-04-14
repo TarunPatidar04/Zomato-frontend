@@ -1,9 +1,18 @@
-
+import { BrowserRouter, Routes, Route } from "react-router";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
-    <div className="bg-red-700 text-amber-400">App</div>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+      <Toaster />
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
