@@ -2,13 +2,19 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import { Toaster } from "react-hot-toast";
+import ProtectedRoute from "./components/protectedRoute";
+import PublicRoute from "./components/publicRoute";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route element={<PublicRoute />}>
+          <Route path="/login" element={<Login />} />
+        </Route>
+        <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<Home />} />
+        </Route>
       </Routes>
       <Toaster />
     </BrowserRouter>
