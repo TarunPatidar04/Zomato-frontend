@@ -3,21 +3,21 @@ import { useAppData } from "../context/AppContext";
 
 const ProtectedRoute = () => {
   const { isAuth, loading, user } = useAppData();
+  const location = useLocation();
 
   if (loading) return null;
 
-  const location = useLocation();
 
   if (!isAuth) {
     return <Navigate to="/login"  replace />;
   }
 
-  if(user?.role===null && location.pathname !== "/select-role"){
+  if(!user?.role && location.pathname !== "/select-role"){
     return <Navigate to="/select-role"  replace />;
   }
 
 
-   if(user?.role!==null && location.pathname === "/select-role"){
+   if(user?.role && location.pathname === "/select-role"){
     return <Navigate to="/"  replace />;
   }
 
