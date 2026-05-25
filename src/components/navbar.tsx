@@ -55,7 +55,7 @@ const Navbar = () => {
       {/* Search Bar */}
       {isHomePage && (
         <div className="border-t px-4 py-3">
-          <div className="   mx-auto max-w-7xl flex items-center rounded-lg border shadow-sm">
+          <div className="mx-auto max-w-7xl flex items-center rounded-lg border shadow-sm">
             <div className="flex items-center gap-2 px-3 border-r text-gray-700">
               <BiMapPin className="h-4 w-4 text-[#e23744]" />
               <span className="text-sm truncate max-w-36">City</span>
